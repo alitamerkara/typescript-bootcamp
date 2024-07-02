@@ -54,9 +54,47 @@ type Test={
   test3: "string"
 }
 type Test2 = keyof Test
-  return (
+//mapped types
+type tip1 = "tip1"|"tip2"|"tip3";
+type newType= {
+  [t in tip1]:number
+}
+let newObj: newType={
+  tip1: 10,
+  tip2: 12,
+  tip3: 34
+}
+//mapped types in generic types
+type map={
+  id:number,
+  name:"string",
+  bio:"string"
+}
+type newMap<T>={
+  [m in keyof T]: T[m] 
+}
+type lastMap= newMap<map>
+ //extending types
+ interface property{
+  id:number,
+  name:string,
+  bio:string
+ } 
+ interface property2 extends property {
+  color: string
+ }
+const objj:property2={
+  id:12,
+  name:"atk",
+  bio:"string",
+  color: "red"
+}
+
+
+
+return (
     <div className="App">
-     {val}
+     
     </div>
   );
 }
